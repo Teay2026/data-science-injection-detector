@@ -1,0 +1,6 @@
+pyspark>=3.5,<4.0
+pandas
+pyarrow
+matplotlib
+jupyter
+huggingface_hub

@@ -1,3 +1,38 @@
 # Prompt injection detection in emails
 
-Data science project with Pandas and PySpark. Goal: clean emails, train classic ML models, and see how cleaning changes the detection of prompt injections, including hidden ones.
+Data science project with Pandas and PySpark. We detect prompt injections in emails with classic ML models, and measure how text cleaning changes the result, including on hidden injections.
+
+## Questions
+
+1. Does cleaning the text improve detection?
+2. Which text representation resists hidden injections best: words, characters, LSA or Word2Vec?
+3. Does a detector trained on phase 1 attacks still work on phase 2, where attackers adapted?
+
+## Data
+
+- Injections: [LLMail-Inject](https://huggingface.co/datasets/microsoft/llmail-inject-challenge) (Microsoft, MIT licence), texts labelled `true` by the challenge.
+- Normal emails: LLMail texts labelled `false`, the challenge's legitimate emails, and a sample of [Enron](https://huggingface.co/datasets/corbt/enron-emails).
+
+`notebooks/01_data.ipynb` downloads everything (pinned revisions) and builds `data/processed/emails.parquet`: 30 000 emails per class, duplicates removed, fixed 80/20 train/test split.
+
+## Setup
+
+Python 3.10 and Java 17.
+
+```bash
+python3.10 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+On Windows, Spark needs `winutils.exe` and `hadoop.dll` in `%HADOOP_HOME%\bin` to write Parquet.
+
+## Plan
+
+- [x] 1. Data: one balanced dataset, duplicates removed, fixed train/test split
+- [ ] 2. Exploration
+- [ ] 3. Source bias check: a model that only sees the shape of the text
+- [ ] 4. Iteration 1: raw text, word TF-IDF, pruning, logistic regression and Naive Bayes
+- [ ] 5. Iteration 2: cleaned text
+- [ ] 6. Iteration 3: character n-grams
+- [ ] 7. Iteration 4: LSA and Word2Vec, then SVM and XGBoost
+- [ ] 8. Evaluation: obfuscation test, phase 1 to phase 2, errors by attack type
