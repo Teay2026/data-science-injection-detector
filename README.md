@@ -6,7 +6,7 @@ Data science project with Pandas and PySpark. We detect prompt injections in ema
 
 1. Does cleaning the text improve detection?
 2. Which text representation resists hidden injections best: words, characters, LSA or Word2Vec?
-3. Does a detector trained on phase 1 attacks still work on phase 2, where attackers adapted?
+3. Does a detector trained on phase 1 attacks still catch phase 2 attacks, made after defenses changed? Real life: like a spam filter trained last year, facing this year's spam.
 4. Does classic ML detect injections better than LLMs, and at what cost?
 
 ## Data
