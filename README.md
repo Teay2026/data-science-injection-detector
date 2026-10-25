@@ -7,6 +7,7 @@ Data science project with Pandas and PySpark. We detect prompt injections in ema
 1. Does cleaning the text improve detection?
 2. Which text representation resists hidden injections best: words, characters, LSA or Word2Vec?
 3. Does a detector trained on phase 1 attacks still work on phase 2, where attackers adapted?
+4. Does classic ML detect injections better than LLMs, and at what cost?
 
 ## Data
 
@@ -14,6 +15,8 @@ Data science project with Pandas and PySpark. We detect prompt injections in ema
 - Normal emails: LLMail texts labelled `false`, the challenge's legitimate emails, and a sample of [Enron](https://huggingface.co/datasets/corbt/enron-emails).
 
 `notebooks/01_data.ipynb` downloads everything (pinned revisions) and builds `data/processed/emails.parquet`: 30 000 emails per class, duplicates removed, fixed 80/20 train/test split.
+
+Most LLMail labels come from the challenge's LLM judge. Only `api_triggered` labels are sure: the attack made the LLM call the email API. The `reason` column keeps this, so ML and LLMs can also be compared on sure labels only.
 
 ## Setup
 
@@ -36,3 +39,4 @@ On Windows, Spark needs `winutils.exe` and `hadoop.dll` in `%HADOOP_HOME%\bin` t
 - [ ] 6. Iteration 3: character n-grams
 - [ ] 7. Iteration 4: LSA and Word2Vec, then SVM and XGBoost
 - [ ] 8. Evaluation: obfuscation test, phase 1 to phase 2, errors by attack type
+- [ ] 9. ML vs LLM on 1 000 test emails: local LLM, small dedicated model, then an LLM through an API. Quality, speed and cost.
