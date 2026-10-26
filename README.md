@@ -34,7 +34,7 @@ On Windows, Spark needs `winutils.exe` and `hadoop.dll` in `%HADOOP_HOME%\bin` t
 - [x] 1. Data: one balanced dataset, duplicates removed, fixed train/test split
 - [x] 2. Exploration
 - [x] 3. Source bias check: a model that only sees the shape of the text
-- [ ] 4. Iteration 1: raw text, word TF-IDF, pruning, logistic regression and Naive Bayes
+- [x] 4. Iteration 1: raw text, word TF-IDF, pruning, logistic regression and Naive Bayes
 - [ ] 5. Iteration 2: cleaned text
 - [ ] 6. Iteration 3: character n-grams
 - [ ] 7. Iteration 4: LSA and Word2Vec, then SVM and XGBoost
