@@ -23,7 +23,9 @@ CONTROL = r"[\x{00}-\x{08}\x{0B}\x{0C}\x{0E}-\x{1F}\x{7F}-\x{9F}]"
 # The challenge's target address, also written to dodge filters:
 # "contact at contact.com", "contact[at]contact[dot]com", "contact@contact,com".
 TARGET_ADDRESS = r"(?i)contact\s*(?:@|\[at\]|\(at\)|\{at\}|\bat\b)\s*contact\s*(?:\.|,|\[dot\]|\(dot\)|\{dot\}|\bdot\b)\s*com"
-EMAIL_ADDRESS = r"[\p{L}\p{N}._%+-]+@[\p{L}\p{N}-]+(?:\.[\p{L}\p{N}-]+)+"
+# (?<!...) starts a match only at the beginning of a word and ++ never goes back:
+# without them the regex is very slow on long texts with no spaces (Chinese, glued words).
+EMAIL_ADDRESS = r"(?<![\p{L}\p{N}._%+-])[\p{L}\p{N}._%+-]++@[\p{L}\p{N}-]++(?:\.[\p{L}\p{N}-]++)+"
 # "RE:", "FW:", "Fwd:" added by the mail software at the start of the subject.
 REPLY_PREFIX = r"(?i)^(Subject of the email: )(?:(?:re|fwd?)\s*:\s*)+"
 
