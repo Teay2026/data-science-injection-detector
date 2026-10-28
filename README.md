@@ -16,6 +16,8 @@ Data science project with Pandas and PySpark. We detect prompt injections in ema
 
 `notebooks/01_data.ipynb` downloads everything (pinned revisions) and builds `data/processed/emails.parquet`: 30 000 emails per class, duplicates removed, fixed 80/20 train/test split.
 
+27 LLMail texts labelled normal hide an attack in invisible characters, missed by the challenge's judge (found in notebook 5). Notebook 1 relabels them as injections after the sampling (`reason = hidden_text`): 30 027 injections, 29 973 normal emails.
+
 Most LLMail labels come from the challenge's LLM judge. Only `api_triggered` labels are sure: the attack made the LLM call the email API. The `reason` column keeps this, so ML and LLMs can also be compared on sure labels only.
 
 ## Setup
