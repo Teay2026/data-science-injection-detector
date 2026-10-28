@@ -7,3 +7,5 @@ huggingface_hub
 scikit-learn
 # scipy 1.15 (needed by scikit-learn) does not load on macOS 27.
 scipy<1.15
+# On macOS, XGBoost also needs OpenMP: brew install libomp
+xgboost
