@@ -36,7 +36,7 @@ On Windows, Spark needs `winutils.exe` and `hadoop.dll` in `%HADOOP_HOME%\bin` t
 - [x] 3. Source bias check: a model that only sees the shape of the text
 - [x] 4. Iteration 1: raw text, word TF-IDF, pruning, logistic regression and Naive Bayes
 - [x] 5. Iteration 2: cleaned text
-- [ ] 6. Iteration 3: character n-grams
+- [x] 6. Iteration 3: character n-grams
 - [ ] 7. Iteration 4: LSA and Word2Vec, then SVM and XGBoost
 - [ ] 8. Evaluation: obfuscation test, phase 1 to phase 2, errors by attack type
 - [ ] 9. ML vs LLM on 1 000 test emails: local LLM, small dedicated model, then an LLM through an API. Quality, speed and cost.
