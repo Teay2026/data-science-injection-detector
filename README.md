@@ -1,5 +1,11 @@
 # Prompt injection detection in emails
 
+Project done by:
+
+- Youness Tahiri El Alaoui
+- Amin Belguidoum
+- Mohammed Amin Agoumi
+
 Data science project with Pandas and PySpark. We detect prompt injections in emails with classic ML models, and measure how text cleaning changes the result, including on hidden injections.
 
 ## Questions
