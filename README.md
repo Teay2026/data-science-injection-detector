@@ -8,6 +8,10 @@ Project done by:
 
 Data science project with Pandas and PySpark. We detect prompt injections in emails with classic ML models, and measure how text cleaning changes the result, including on hidden injections.
 
+## Report
+
+[rapport.md](rapport.md): the path we followed and what we learned.
+
 ## Use of AI
 
 We used AI as an assistant during this project. It helped us write the code and it also helped us find mistakes in our reasoning and in our method when we got stuck. It worked as an assistant: we made the choices, ran the experiments and checked the results ourselves.
